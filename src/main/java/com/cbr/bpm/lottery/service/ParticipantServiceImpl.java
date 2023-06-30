@@ -17,13 +17,11 @@ public class ParticipantServiceImpl implements ParticipantService {
 
     private final RestTemplate restTemplate;
     private final ApplicationProperties applicationProperties;
-    private final ObjectMapper objectMapper;
 
     public ParticipantServiceImpl(@Qualifier("authenticatedRestTemplate") RestTemplate restTemplate,
-                                  ApplicationProperties applicationProperties, ObjectMapper objectMapper) {
+                                  ApplicationProperties applicationProperties) {
         this.restTemplate = restTemplate;
         this.applicationProperties = applicationProperties;
-        this.objectMapper = objectMapper;
     }
 
     @Override
@@ -33,8 +31,6 @@ public class ParticipantServiceImpl implements ParticipantService {
 
     @Override
     public List<Participant> numerate(List<Participant> participants) throws JsonProcessingException {
-        log.warn("Participants: {} {}", applicationProperties.getNumberingUrl(),
-                objectMapper.writeValueAsString(participants));
         return (List<Participant>) restTemplate.postForObject(applicationProperties.getNumberingUrl(), participants, List.class);
     }
 }

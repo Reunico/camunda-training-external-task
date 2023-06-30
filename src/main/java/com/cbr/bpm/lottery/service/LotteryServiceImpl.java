@@ -21,7 +21,6 @@ public class LotteryServiceImpl implements LotteryService {
 
     @Override
     public void start() {
-        log.warn(applicationProperties.getLotteryUrl());
         restTemplate.postForLocation(applicationProperties.getLotteryUrl() + "/start", null);
     }
 
