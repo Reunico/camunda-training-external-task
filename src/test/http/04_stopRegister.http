@@ -1,0 +1,32 @@
+### Отбор, блокировка и завершение задачи Остановить регистрацию
+
+GET {{url}}/engine-rest/external-task?processInstanceId={{processInstanceId}}&topicName=stop-register
+Content-Type: application/json
+
+> {%
+client.global.set("taskId", response.body[0].id);
+%}
+###
+
+POST {{url}}/engine-rest/external-task/fetchAndLock
+Content-Type: application/json
+
+{
+  "workerId": "test",
+  "maxTasks": 2,
+  "usePriority": true,
+  "topics": [
+    {
+      "topicName": "stop-register",
+      "lockDuration": 10000
+    }
+  ]
+}
+###
+
+POST {{url}}/engine-rest/external-task/{{taskId}}/complete
+Content-Type: application/json
+
+{
+  "workerId": "test"
+}

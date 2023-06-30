@@ -1,0 +1,25 @@
+### ### Отбор, блокировка и завершение задачи Уведомить о выигрыше
+
+POST {{url}}/engine-rest/external-task
+Content-Type: application/json
+
+{
+  "workerId": "test",
+  "maxTasks": 2,
+  "usePriority": true,
+  "topics": [
+    {
+      "topicName": "notify",
+      "lockDuration": 10000
+    }
+  ]
+}
+###
+
+POST {{url}}/engine-rest/external-task/{{taskId}}/complete
+Content-Type: application/json
+
+{
+  "workerId": "test"
+}
+

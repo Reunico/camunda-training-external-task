@@ -1,0 +1,18 @@
+### Получение ID Пользовательской задачи Проверить результаты лотереи
+
+POST {{url}}/engine-rest/task
+Content-Type: application/json
+
+{
+  "processInstanceId": "{{processInstanceId}}"
+}
+
+> {%
+client.global.set("userTaskId", response.body[0].id);
+%}
+
+### Завершение Пользовательской задачи Проверить результаты лотереи
+POST {{url}}/engine-rest/task/{{userTaskId}}/complete
+Content-Type: application/json
+
+{}

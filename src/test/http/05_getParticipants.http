@@ -1,0 +1,43 @@
+### Отбор, блокировка и завершение задачи Получить список участников
+
+GET {{url}}/engine-rest/external-task?processInstanceId={{processInstanceId}}&topicName=get-participants
+Content-Type: application/json
+
+> {%
+client.global.set("taskId", response.body[0].id);
+%}
+###
+
+POST {{url}}/engine-rest/external-task/fetchAndLock
+Content-Type: application/json
+
+{
+  "workerId": "test",
+  "maxTasks": 2,
+  "usePriority": true,
+  "topics": [
+    {
+      "topicName": "get-participants",
+      "lockDuration": 10000
+    }
+  ]
+}
+###
+
+POST {{url}}/engine-rest/external-task/{{taskId}}/complete
+Content-Type: application/json
+
+{
+  "workerId": "test",
+  "variables":{
+    "participants": {
+      "value": [{
+        "name": "Mstislav",
+        "createdDate": "2023-06-28T17:27:58.403744Z",
+        "chatId": 203355027,
+        "number": null
+      }]
+    }
+  }
+}
+
