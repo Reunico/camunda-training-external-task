@@ -170,14 +170,15 @@
           <dc:Bounds x="436" y="315" width="29" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1k0s2sz_di" bpmnElement="Event_lotteryEnd">
-        <dc:Bounds x="2112" y="287" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="2102" y="330" width="57" height="27" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0xs066t_di" bpmnElement="Activity_1ojcm07">
         <dc:Bounds x="1950" y="265" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1k0s2sz_di" bpmnElement="Event_lotteryEnd">
+        <dc:Bounds x="2142" y="287" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2132" y="330" width="57" height="27" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1ivyii4_di" bpmnElement="Activity_lottery" isExpanded="true">
         <dc:Bounds x="1070" y="40" width="800" height="460" />
@@ -200,6 +201,7 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0xdqx34_di" bpmnElement="Activity_notifyWin">
         <dc:Bounds x="1450" y="180" width="100" height="80" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_00cd287_di" bpmnElement="Activity_notifyLose">
         <dc:Bounds x="1450" y="370" width="100" height="80" />
@@ -269,9 +271,11 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_00ks27r_di" bpmnElement="Activity_getParticipants">
         <dc:Bounds x="700" y="250" width="100" height="80" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1eo4q95_di" bpmnElement="Activity_numerateParticipants">
         <dc:Bounds x="870" y="250" width="100" height="80" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_19i7maf_di" bpmnElement="Activity_16zgtv8">
         <dc:Bounds x="990" y="630" width="100" height="80" />
@@ -380,7 +384,7 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1dv91ee_di" bpmnElement="Flow_1dv91ee">
         <di:waypoint x="2050" y="305" />
-        <di:waypoint x="2112" y="305" />
+        <di:waypoint x="2142" y="305" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

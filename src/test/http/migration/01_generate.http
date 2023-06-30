@@ -1,0 +1,13 @@
+### Генерация плана миграции
+
+POST {{url}}/engine-rest/migration/generate
+Content-Type: application/json
+
+{
+  "sourceProcessDefinitionId": "lottery:9:04e25ab4-1736-11ee-981a-9ab5f2fda24e",
+  "targetProcessDefinitionId": "lottery:10:53a24e0e-1742-11ee-981a-9ab5f2fda24e"
+}
+
+> {%
+client.global.set("migrationPlan", response.body);
+%}

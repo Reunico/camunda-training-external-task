@@ -1,0 +1,115 @@
+### Генерация плана миграции
+
+POST {{url}}/engine-rest/migration/validate
+Content-Type: application/json
+
+{
+  "sourceProcessDefinitionId": "lottery:9:04e25ab4-1736-11ee-981a-9ab5f2fda24e",
+  "targetProcessDefinitionId": "lottery:10:53a24e0e-1742-11ee-981a-9ab5f2fda24e",
+  "instructions": [
+    {
+      "sourceActivityIds": [
+        "Activity_notifyLose"
+      ],
+      "targetActivityIds": [
+        "Activity_notifyLose"
+      ],
+      "updateEventTrigger": false
+    },
+    {
+      "sourceActivityIds": [
+        "Activity_stopRegister"
+      ],
+      "targetActivityIds": [
+        "Activity_stopRegister"
+      ],
+      "updateEventTrigger": false
+    },
+    {
+      "sourceActivityIds": [
+        "Activity_lottery"
+      ],
+      "targetActivityIds": [
+        "Activity_lottery"
+      ],
+      "updateEventTrigger": false
+    },
+    {
+      "sourceActivityIds": [
+        "Activity_getParticipants"
+      ],
+      "targetActivityIds": [
+        "Activity_getParticipants"
+      ],
+      "updateEventTrigger": false
+    },
+    {
+      "sourceActivityIds": [
+        "Activity_lottery#multiInstanceBody"
+      ],
+      "targetActivityIds": [
+        "Activity_lottery#multiInstanceBody"
+      ],
+      "updateEventTrigger": false
+    },
+    {
+      "sourceActivityIds": [
+        "Activity_openRegister"
+      ],
+      "targetActivityIds": [
+        "Activity_openRegister"
+      ],
+      "updateEventTrigger": false
+    },
+    {
+      "sourceActivityIds": [
+        "Activity_notifyWin"
+      ],
+      "targetActivityIds": [
+        "Activity_notifyWin"
+      ],
+      "updateEventTrigger": false
+    },
+    {
+      "sourceActivityIds": [
+        "Activity_1ojcm07"
+      ],
+      "targetActivityIds": [
+        "Activity_1ojcm07"
+      ],
+      "updateEventTrigger": false
+    },
+    {
+      "sourceActivityIds": [
+        "Activity_numerateParticipants"
+      ],
+      "targetActivityIds": [
+        "Activity_numerateParticipants"
+      ],
+      "updateEventTrigger": false
+    },
+    {
+      "sourceActivityIds": [
+        "Activity_16zgtv8"
+      ],
+      "targetActivityIds": [
+        "Activity_16zgtv8"
+      ],
+      "updateEventTrigger": false
+    },
+    {
+      "sourceActivityIds": [
+        "Event_timer"
+      ],
+      "targetActivityIds": [
+        "Event_timer"
+      ],
+      "updateEventTrigger": false
+    }
+  ],
+  "variables": null
+}
+
+> {%
+client.global.set("instructions", response.body);
+%}
