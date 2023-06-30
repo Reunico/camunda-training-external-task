@@ -10,7 +10,7 @@
       <bpmn:incoming>Flow_12vjnyg</bpmn:incoming>
       <bpmn:outgoing>Flow_0h90qta</bpmn:outgoing>
       <bpmn:timerEventDefinition id="TimerEventDefinition_0hsxio2">
-        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT15S</bpmn:timeDuration>
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT10M</bpmn:timeDuration>
       </bpmn:timerEventDefinition>
     </bpmn:intermediateCatchEvent>
     <bpmn:sequenceFlow id="Flow_0h90qta" sourceRef="Event_timer" targetRef="Activity_stopRegister" />
@@ -146,10 +146,18 @@
 Массив участников с номерами</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:association id="Association_0g3uu6o" sourceRef="Activity_numerateParticipants" targetRef="TextAnnotation_0km2zd3" />
+    <bpmn:textAnnotation id="TextAnnotation_0r0wbuo">
+      <bpmn:text>Проверить как клиент бота обеспечивает уникальность (chatId)?</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0dgdaak" sourceRef="Activity_openRegister" targetRef="TextAnnotation_0r0wbuo" />
   </bpmn:process>
   <bpmn:error id="Error_1oy0bdo" name="externalTaskError" errorCode="externalTaskError" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="lottery">
+      <bpmndi:BPMNShape id="TextAnnotation_0r0wbuo_di" bpmnElement="TextAnnotation_0r0wbuo">
+        <dc:Bounds x="320" y="95" width="160" height="84" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_lottery">
         <dc:Bounds x="179" y="272" width="36" height="36" />
         <bpmndi:BPMNLabel>
@@ -282,6 +290,10 @@
         <dc:Bounds x="800" y="50" width="200" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_0dgdaak_di" bpmnElement="Association_0dgdaak">
+        <di:waypoint x="331" y="250" />
+        <di:waypoint x="351" y="179" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Event_1lw1jgd_di" bpmnElement="Event_0tretpz">
         <dc:Bounds x="932" y="312" width="36" height="36" />
         <bpmndi:BPMNLabel>
