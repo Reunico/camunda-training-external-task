@@ -34,7 +34,7 @@
       <bpmn:sequenceFlow id="Flow_1682j2u" sourceRef="Activity_checkNumber" targetRef="Gateway_1ecsjkm" />
       <bpmn:sequenceFlow id="Flow_0unaygp" sourceRef="Gateway_1ecsjkm" targetRef="Activity_notifyLose" />
       <bpmn:endEvent id="Event_win" name="Участник выиграл">
-        <bpmn:incoming>Flow_1k5tpdc</bpmn:incoming>
+        <bpmn:incoming>Flow_0zd62pv</bpmn:incoming>
       </bpmn:endEvent>
       <bpmn:endEvent id="Event_lose" name="Участник не выиграл">
         <bpmn:incoming>Flow_050ylq5</bpmn:incoming>
@@ -54,11 +54,6 @@
         <bpmn:incoming>Flow_0unaygp</bpmn:incoming>
         <bpmn:outgoing>Flow_050ylq5</bpmn:outgoing>
       </bpmn:serviceTask>
-      <bpmn:sequenceFlow id="Flow_1k5tpdc" sourceRef="Activity_0lm2hdz" targetRef="Event_win" />
-      <bpmn:userTask id="Activity_0lm2hdz" name="Выдать выигрыш">
-        <bpmn:incoming>Flow_0zd62pv</bpmn:incoming>
-        <bpmn:outgoing>Flow_1k5tpdc</bpmn:outgoing>
-      </bpmn:userTask>
       <bpmn:serviceTask id="Activity_notifyWin" name="Уведомить о выигрыше" camunda:type="external" camunda:topic="notify">
         <bpmn:extensionElements>
           <camunda:inputOutput>
@@ -69,7 +64,7 @@
         <bpmn:incoming>Flow_0b6tlz7</bpmn:incoming>
         <bpmn:outgoing>Flow_0zd62pv</bpmn:outgoing>
       </bpmn:serviceTask>
-      <bpmn:sequenceFlow id="Flow_0zd62pv" sourceRef="Activity_notifyWin" targetRef="Activity_0lm2hdz" />
+      <bpmn:sequenceFlow id="Flow_0zd62pv" sourceRef="Activity_notifyWin" targetRef="Event_win" />
       <bpmn:sequenceFlow id="Flow_0b6tlz7" name="Да" sourceRef="Gateway_1ecsjkm" targetRef="Activity_notifyWin">
         <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${ prizes.size() &gt; 0 }</bpmn:conditionExpression>
       </bpmn:sequenceFlow>
@@ -215,10 +210,6 @@
           <dc:Bounds x="1767" y="245" width="47" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_01sfaaz_di" bpmnElement="Activity_0lm2hdz">
-        <dc:Bounds x="1610" y="180" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_00zq2nt_di" bpmnElement="Event_lose">
         <dc:Bounds x="1762" y="392" width="36" height="36" />
         <bpmndi:BPMNLabel>
@@ -248,7 +239,7 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0zd62pv_di" bpmnElement="Flow_0zd62pv">
         <di:waypoint x="1550" y="220" />
-        <di:waypoint x="1610" y="220" />
+        <di:waypoint x="1772" y="220" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_050ylq5_di" bpmnElement="Flow_050ylq5">
         <di:waypoint x="1550" y="410" />
@@ -261,10 +252,6 @@
       <bpmndi:BPMNEdge id="Association_01ukida_di" bpmnElement="Association_01ukida">
         <di:waypoint x="1526" y="180" />
         <di:waypoint x="1564" y="120" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1k5tpdc_di" bpmnElement="Flow_1k5tpdc">
-        <di:waypoint x="1710" y="220" />
-        <di:waypoint x="1772" y="220" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Activity_1qeyg6t_di" bpmnElement="Activity_openRegister">
         <dc:Bounds x="270" y="250" width="100" height="80" />
